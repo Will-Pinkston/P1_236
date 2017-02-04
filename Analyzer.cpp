@@ -26,7 +26,7 @@ bool analyzer::run(std::vector<char> Input)
 //        Index++; I'll have to increment the Index on a case-by-case basis
         Result = (this->*CurrentState)(Input, Index);
     }
-    Token_list << "Total Tokens: " << Token_counter << "\n";
+    Token_list << "Total Tokens: " << Token_counter << std::endl;
     std::cout << Token_list.str();
     return Result;
 }
@@ -168,7 +168,7 @@ bool analyzer::s0(std::vector<char> Input, unsigned int& Index)//WHITESPACE
 bool analyzer::s1(std::vector<char> Input, unsigned int& Index)//COMMA
 {
     Token_counter++;
-    Token_list << "(COMMA,\",\"," << Line_counter << ")\n";
+    Token_list << "(COMMA,\",\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -177,7 +177,7 @@ bool analyzer::s1(std::vector<char> Input, unsigned int& Index)//COMMA
 bool analyzer::s2(std::vector<char> Input, unsigned int& Index)//PERIOD
 {
     Token_counter++;
-    Token_list << "(PERIOD,\".\"," << Line_counter << ")\n";
+    Token_list << "(PERIOD,\".\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -186,7 +186,7 @@ bool analyzer::s2(std::vector<char> Input, unsigned int& Index)//PERIOD
 bool analyzer::s3(std::vector<char> Input, unsigned int& Index)//Q_MARK
 {
     Token_counter++;
-    Token_list << "(Q_MARK,\"?\"," << Line_counter << ")\n";
+    Token_list << "(Q_MARK,\"?\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -195,7 +195,7 @@ bool analyzer::s3(std::vector<char> Input, unsigned int& Index)//Q_MARK
 bool analyzer::s4(std::vector<char> Input, unsigned int& Index)//LEFT_PAREN
 {
     Token_counter++;
-    Token_list << "(LEFT_PAREN,\"(\"," << Line_counter << ")\n";
+    Token_list << "(LEFT_PAREN,\"(\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -204,7 +204,7 @@ bool analyzer::s4(std::vector<char> Input, unsigned int& Index)//LEFT_PAREN
 bool analyzer::s5(std::vector<char> Input, unsigned int& Index)//RIGHT_PAREN
 {
     Token_counter++;
-    Token_list << "(RIGHT_PAREN,\")\"," << Line_counter << ")\n";
+    Token_list << "(RIGHT_PAREN,\")\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -220,7 +220,7 @@ bool analyzer::s6(std::vector<char> Input, unsigned int& Index)//COLON
     else
     {
         Token_counter++;
-        Token_list << "(COLON,\":\"," << Line_counter << ")\n";
+        Token_list << "(COLON,\":\"," << Line_counter << ")" << std::endl;
         CurrentState = &analyzer::s0;
     }
     return true;
@@ -229,7 +229,7 @@ bool analyzer::s6(std::vector<char> Input, unsigned int& Index)//COLON
 bool analyzer::s7(std::vector<char> Input, unsigned int& Index)//COLON_DASH
 {
     Token_counter++;
-    Token_list << "(COLON_DASH,\":-\"," << Line_counter << ")\n";
+    Token_list << "(COLON_DASH,\":-\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -238,7 +238,7 @@ bool analyzer::s7(std::vector<char> Input, unsigned int& Index)//COLON_DASH
 bool analyzer::s8(std::vector<char> Input, unsigned int& Index)//MULTIPLY
 {
     Token_counter++;
-    Token_list << "(MULTIPLY,\"*\"," << Line_counter << ")\n";
+    Token_list << "(MULTIPLY,\"*\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -247,7 +247,7 @@ bool analyzer::s8(std::vector<char> Input, unsigned int& Index)//MULTIPLY
 bool analyzer::s9(std::vector<char> Input, unsigned int& Index)//ADD
 {
     Token_counter++;
-    Token_list << "(ADD,\"+\"," << Line_counter << ")\n";
+    Token_list << "(ADD,\"+\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     Index++;
     return true;
@@ -269,7 +269,7 @@ bool analyzer::s10(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -292,7 +292,7 @@ bool analyzer::s11(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -315,7 +315,7 @@ bool analyzer::s12(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -338,7 +338,7 @@ bool analyzer::s13(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -361,7 +361,7 @@ bool analyzer::s14(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -384,7 +384,7 @@ bool analyzer::s15(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -402,7 +402,7 @@ bool analyzer::s16(std::vector<char> Input, unsigned int& Index)//SCHEMES
     else
     {
         Token_counter++;
-        Token_list << "(SCHEMES,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(SCHEMES,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -425,7 +425,7 @@ bool analyzer::s17(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -448,7 +448,7 @@ bool analyzer::s18(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -471,7 +471,7 @@ bool analyzer::s19(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -494,7 +494,7 @@ bool analyzer::s20(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -512,7 +512,7 @@ bool analyzer::s21(std::vector<char> Input, unsigned int& Index)//FACTS
     else
     {
         Token_counter++;
-        Token_list << "(FACTS,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(FACTS,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -535,7 +535,7 @@ bool analyzer::s22(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -558,7 +558,7 @@ bool analyzer::s23(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -581,7 +581,7 @@ bool analyzer::s24(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -604,7 +604,7 @@ bool analyzer::s25(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -622,7 +622,7 @@ bool analyzer::s26(std::vector<char> Input, unsigned int& Index)//RULES
     else
     {
         Token_counter++;
-        Token_list << "(RULES,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(RULES,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -645,7 +645,7 @@ bool analyzer::s27(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -668,7 +668,7 @@ bool analyzer::s28(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -691,7 +691,7 @@ bool analyzer::s29(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -714,7 +714,7 @@ bool analyzer::s30(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -737,7 +737,7 @@ bool analyzer::s31(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -760,7 +760,7 @@ bool analyzer::s32(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -778,7 +778,7 @@ bool analyzer::s33(std::vector<char> Input, unsigned int& Index)//QUERIES
     else
     {
         Token_counter++;
-        Token_list << "(QUERIES,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(QUERIES,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -796,7 +796,7 @@ bool analyzer::s34(std::vector<char> Input, unsigned int& Index)//ID
     else
     {
         Token_counter++;
-        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+        Token_list << "(ID,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -806,7 +806,7 @@ bool analyzer::s34(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s35(std::vector<char> Input, unsigned int& Index)//UNDEFINED ...chopped strings and multi-line comments
 {
     Token_counter++;
-    Token_list << "(UNDEFINED,\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+    Token_list << "(UNDEFINED,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
     CurrentState = &analyzer::s0;
     return true;
 }
@@ -847,7 +847,7 @@ bool analyzer::s37(std::vector<char> Input, unsigned int& Index)//STRING
     else
     {
         Token_counter++;
-        Token_list << "(STRING,\"" << Stringholder.str() << "\"," << Token_starting_line << ")\n";
+        Token_list << "(STRING,\"" << Stringholder.str() << "\"," << Token_starting_line << ")" << std::endl;
         Stringholder.str(std::string());
         CurrentState = &analyzer::s0;
     }
@@ -892,7 +892,7 @@ bool analyzer::s39(std::vector<char> Input, unsigned int& Index)//sub comment
 bool analyzer::s40(std::vector<char> Input, unsigned int& Index)//COMMENT
 {
     Token_counter++;
-    Token_list << "(COMMENT,\"" << Stringholder.str() << "\"," << Token_starting_line << ")\n";
+    Token_list << "(COMMENT,\"" << Stringholder.str() << "\"," << Token_starting_line << ")" << std::endl;
     Stringholder.str(std::string());
     CurrentState = &analyzer::s0;
     return true;
@@ -949,7 +949,7 @@ bool analyzer::s42(std::vector<char> Input, unsigned int& Index)//sub comment
 bool analyzer::s43(std::vector<char> Input, unsigned int& Index)//COMMENT
 {
     Token_counter++;
-    Token_list << "(COMMENT,\"" << Stringholder.str() << "\"," << Token_starting_line << ")\n";
+    Token_list << "(COMMENT,\"" << Stringholder.str() << "\"," << Token_starting_line << ")" << std::endl;
     Stringholder.str(std::string());
     CurrentState = &analyzer::s0;
     return true;
@@ -958,7 +958,7 @@ bool analyzer::s43(std::vector<char> Input, unsigned int& Index)//COMMENT
 bool analyzer::s44(std::vector<char> Input, unsigned int& Index)//UNDEFINED
 {
     Token_counter++;
-    Token_list << "(UNDEFINED.\"" << Stringholder.str() << "\"," << Line_counter << ")\n";
+    Token_list << "(UNDEFINED.\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
     Stringholder.str(std::string());
     CurrentState = &analyzer::s0;
     return true;
@@ -967,7 +967,7 @@ bool analyzer::s44(std::vector<char> Input, unsigned int& Index)//UNDEFINED
 bool analyzer::s45(std::vector<char> Input, unsigned int& Index)//EOF
 {
     Token_counter++;
-    Token_list << "(EOF,\"\"," << Line_counter << ")\n";
+    Token_list << "(EOF,\"\"," << Line_counter << ")" << std::endl;
     return false;
 }
 
