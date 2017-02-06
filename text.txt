@@ -1,6 +1,0 @@
-a basic test file
-'it''s very basic, you know'
-#but still good
-#|yup yup
-yup yup
-yup yup|#
