@@ -806,7 +806,7 @@ bool analyzer::s34(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s35(std::vector<char> Input, unsigned int& Index)//UNDEFINED ...chopped strings and multi-line comments
 {
     Token_counter++;
-    Token_list << "(UNDEFINED,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
+    Token_list << "(UNDEFINED,\"" << Stringholder.str() << "\"," << Token_starting_line << ")" << std::endl;
     CurrentState = &analyzer::s0;
     return true;
 }
@@ -822,7 +822,7 @@ bool analyzer::s36(std::vector<char> Input, unsigned int& Index)//sub string
     else if (Input[Index] == '\0')
     {
         CurrentState = &analyzer::s35;
-        Stringholder << Input[Index];
+        //Stringholder << Input[Index];
     }
     else
     {
@@ -903,7 +903,7 @@ bool analyzer::s41(std::vector<char> Input, unsigned int& Index)//sub comment
     Index++;
     if (Input[Index] == '\0')
     {
-        Stringholder << Input[Index];
+        //Stringholder << Input[Index];
         CurrentState = &analyzer::s35;
     }
     else if (Input[Index] == '|')
@@ -948,6 +948,7 @@ bool analyzer::s42(std::vector<char> Input, unsigned int& Index)//sub comment
 
 bool analyzer::s43(std::vector<char> Input, unsigned int& Index)//COMMENT
 {
+    Index++;
     Token_counter++;
     Token_list << "(COMMENT,\"" << Stringholder.str() << "\"," << Token_starting_line << ")" << std::endl;
     Stringholder.str(std::string());
