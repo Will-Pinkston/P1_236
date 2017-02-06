@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include "Analyzer.hpp"
+#include "Analyzer.h"
 #include <vector>
 #include <fstream>
 

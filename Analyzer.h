@@ -1,13 +1,13 @@
 //
-//  Analyzer.hpp
+//  Analyzer.h
 //  Lexical_Analyzer_p1
 //
 //  Created by William Pinkston on 2/2/17.
 //  Copyright © 2017 Xunil_programming. All rights reserved.
 //
 
-#ifndef Analyzer_hpp
-#define Analyzer_hpp
+#ifndef Analyzer_h
+#define Analyzer_h
 
 #include <stdio.h>
 #include <vector>
@@ -78,7 +78,7 @@ private:
     bool (analyzer::*CurrentState)(std::vector<char> Input, unsigned int& Index);
 };
 
-#endif /* Analyzer_hpp */
+#endif /* Analyzer_h */
 
 
 

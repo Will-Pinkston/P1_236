@@ -6,7 +6,7 @@
 //  Copyright © 2017 Xunil_programming. All rights reserved.
 //
 
-#include "Analyzer.hpp"
+#include "Analyzer.h"
 
 analyzer::analyzer()
 {
@@ -26,7 +26,7 @@ bool analyzer::run(std::vector<char> Input)
 //        Index++; I'll have to increment the Index on a case-by-case basis
         Result = (this->*CurrentState)(Input, Index);
     }
-    Token_list << "Total Tokens: " << Token_counter << std::endl;
+    Token_list << "Total Tokens = " << Token_counter << std::endl;
     std::cout << Token_list.str();
     return Result;
 }
@@ -256,7 +256,7 @@ bool analyzer::s9(std::vector<char> Input, unsigned int& Index)//ADD
 bool analyzer::s10(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'C')
+    if (Input[Index] == 'c')
     {
         CurrentState = &analyzer::s11;
         Stringholder << Input[Index];
@@ -279,7 +279,7 @@ bool analyzer::s10(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s11(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'H')
+    if (Input[Index] == 'h')
     {
         CurrentState = &analyzer::s12;
         Stringholder << Input[Index];
@@ -302,7 +302,7 @@ bool analyzer::s11(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s12(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'E')
+    if (Input[Index] == 'e')
     {
         CurrentState = &analyzer::s13;
         Stringholder << Input[Index];
@@ -325,7 +325,7 @@ bool analyzer::s12(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s13(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'M')
+    if (Input[Index] == 'm')
     {
         CurrentState = &analyzer::s14;
         Stringholder << Input[Index];
@@ -348,7 +348,7 @@ bool analyzer::s13(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s14(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'E')
+    if (Input[Index] == 'e')
     {
         CurrentState = &analyzer::s15;
         Stringholder << Input[Index];
@@ -371,7 +371,7 @@ bool analyzer::s14(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s15(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'S')
+    if (Input[Index] == 's')
     {
         CurrentState = &analyzer::s16;
         Stringholder << Input[Index];
@@ -412,7 +412,7 @@ bool analyzer::s16(std::vector<char> Input, unsigned int& Index)//SCHEMES
 bool analyzer::s17(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'A')
+    if (Input[Index] == 'a')
     {
         CurrentState = &analyzer::s18;
         Stringholder << Input[Index];
@@ -435,7 +435,7 @@ bool analyzer::s17(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s18(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'C')
+    if (Input[Index] == 'c')
     {
         CurrentState = &analyzer::s19;
         Stringholder << Input[Index];
@@ -458,7 +458,7 @@ bool analyzer::s18(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s19(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'T')
+    if (Input[Index] == 't')
     {
         CurrentState = &analyzer::s20;
         Stringholder << Input[Index];
@@ -481,7 +481,7 @@ bool analyzer::s19(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s20(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'S')
+    if (Input[Index] == 's')
     {
         CurrentState = &analyzer::s21;
         Stringholder << Input[Index];
@@ -522,7 +522,7 @@ bool analyzer::s21(std::vector<char> Input, unsigned int& Index)//FACTS
 bool analyzer::s22(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'U')
+    if (Input[Index] == 'u')
     {
         CurrentState = &analyzer::s23;
         Stringholder << Input[Index];
@@ -545,7 +545,7 @@ bool analyzer::s22(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s23(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'L')
+    if (Input[Index] == 'l')
     {
         CurrentState = &analyzer::s24;
         Stringholder << Input[Index];
@@ -568,7 +568,7 @@ bool analyzer::s23(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s24(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'E')
+    if (Input[Index] == 'e')
     {
         CurrentState = &analyzer::s25;
         Stringholder << Input[Index];
@@ -591,7 +591,7 @@ bool analyzer::s24(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s25(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'S')
+    if (Input[Index] == 's')
     {
         CurrentState = &analyzer::s26;
         Stringholder << Input[Index];
@@ -632,7 +632,7 @@ bool analyzer::s26(std::vector<char> Input, unsigned int& Index)//RULES
 bool analyzer::s27(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'U')
+    if (Input[Index] == 'u')
     {
         CurrentState = &analyzer::s28;
         Stringholder << Input[Index];
@@ -655,7 +655,7 @@ bool analyzer::s27(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s28(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'E')
+    if (Input[Index] == 'e')
     {
         CurrentState = &analyzer::s29;
         Stringholder << Input[Index];
@@ -678,7 +678,7 @@ bool analyzer::s28(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s29(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'R')
+    if (Input[Index] == 'r')
     {
         CurrentState = &analyzer::s30;
         Stringholder << Input[Index];
@@ -701,7 +701,7 @@ bool analyzer::s29(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s30(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'I')
+    if (Input[Index] == 'i')
     {
         CurrentState = &analyzer::s31;
         Stringholder << Input[Index];
@@ -724,7 +724,7 @@ bool analyzer::s30(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s31(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'E')
+    if (Input[Index] == 'e')
     {
         CurrentState = &analyzer::s32;
         Stringholder << Input[Index];
@@ -747,7 +747,7 @@ bool analyzer::s31(std::vector<char> Input, unsigned int& Index)//ID
 bool analyzer::s32(std::vector<char> Input, unsigned int& Index)//ID
 {
     Index++;
-    if (Input[Index] == 'S')
+    if (Input[Index] == 's')
     {
         CurrentState = &analyzer::s33;
         Stringholder << Input[Index];
@@ -958,7 +958,7 @@ bool analyzer::s43(std::vector<char> Input, unsigned int& Index)//COMMENT
 bool analyzer::s44(std::vector<char> Input, unsigned int& Index)//UNDEFINED
 {
     Token_counter++;
-    Token_list << "(UNDEFINED.\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
+    Token_list << "(UNDEFINED,\"" << Stringholder.str() << "\"," << Line_counter << ")" << std::endl;
     Stringholder.str(std::string());
     CurrentState = &analyzer::s0;
     return true;
